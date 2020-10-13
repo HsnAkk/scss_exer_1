@@ -1,0 +1,156 @@
+
+$grid-breakpoints: (
+  md: 768px,
+  lg: 1024px
+);
+
+// @import "node_modules/bootstrap/scss/bootstrap";
+// @import "reset";
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/utilities";
+@import "variables";
+
+@mixin flex ($direction, $main_axis, $cross_axis) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $main_axis;
+  align-items: $cross_axis;
+}
+@mixin border ($width, $color) {
+  border: $width solid $color;
+}
+@mixin shadow ($type, $x, $y, $blur, $color) {
+  #{$type}-shadow: $x $y $blur $color; 
+}
+
+
+/* navbar */
+.sec-nav {
+    height: 80px;
+    background: white;
+    
+    > div {
+        width: 100%;
+        ul {
+            @include flex(row, flex-end, center);
+            margin-right: 50px;
+
+            @media screen and (max-width: 768px) {
+                justify-content: center;
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            li {
+                list-style: none;
+                display: inline-block;
+                a {
+                    color: $nav-footer;
+                    line-height: 80px;
+                    margin: 0 20px;
+                    font-size: 20px;
+                    font-weight: bold;
+
+                    &:hover {
+                        color: #00286d;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Banner */
+.sec-banner {
+   
+    > div {
+        width: 100%;
+        position: relative;
+        img {
+            width: 100%;
+            height: 400px;
+        }
+        h1 {
+          position: absolute;
+          top: 50px;
+          left: 50%;
+          transform:translateX(-50%);
+          font-size: 50px;
+          text-align: center
+        }
+    }
+}
+
+/* cards */
+.sec-cards {
+    margin: 30px 0;
+    justify-content: center;
+
+    > div {
+        @include flex(row, space-between, center);
+        @include border(2px, $card-aside-border);
+        @include shadow(box, 5px, 5px, 5px, #d5d5d5 );
+        margin: 10px;
+        padding: 15px;
+        background: $card-bg;
+        
+        > img {
+            width: 40%;
+            height: 100%;
+        }
+        > div {
+            width: 60%;
+            padding: 0 20px;
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+
+            > img {
+                width: 100%;
+                height: 250px;
+            }
+            > div {
+                width: 100%;
+                padding: 15px 0;
+            }
+        }
+    }
+}
+
+
+/* text */
+.sec-text {
+    padding: 0 25px 20px;
+
+    > div:not(:nth-child(2)) {
+        @include border(2px, $card-aside-border);
+        padding: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+        > div:nth-child(2) h4 {
+            padding-top: 20px;
+        }
+    }
+}
+
+
+/* footer */
+.footer {
+    background: $nav-footer;
+    height: 60px;
+    justify-content: center;
+    > div > a {
+        color: white;
+        line-height: 60px;
+        padding: 0 20px;
+    } 
+}
