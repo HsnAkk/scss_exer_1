@@ -2,7 +2,7 @@
 
 This exercise focuses mainly importing files, variables, and @mixin topics.
 
-Create a mockup website as seen in [this reference](https://www.google.com).
+Create a mockup website as seen in [this reference](https://hsnakk.github.io/scss_exer_1/).
 
 ### Unstructions:
 
